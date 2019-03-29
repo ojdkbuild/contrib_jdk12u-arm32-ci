@@ -1,4 +1,4 @@
-# Copyright 2018, akashche at redhat.com
+# Copyright 2019, akashche at redhat.com
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ deploy:
   provider: releases
   skip_cleanup: true
   api_key:
-    secure: todo
+    secure: mU5Ic3PYkVFbdWyY4l3sp852IvMPJZ1hNJKbjCIVrEPatyy3n5gzMAYHh91vMr0+BsxBeM+NbqYqpvFGahpVkNb0Fm2Ah6giKawbTtrcwcu+SiiHKJ4WOPG4HxY5yveBAR1dLOqZ5+VglogDU3h0gGV2YzENyBwstq022iR95KsE0qmkH7nHJaFQTXSDvw3LjVEvebfvfO4d739jioAOs6kxOGYEsAuEVhqHylMF+xgG2r04G4olU5hWH/f2oc+yptLoAK2lTvTpFn+Y/JpjSnJlYH/JnCVpsGPhc3mbI1EFkWPPfGQzBdYABo4HWZ2sBHN3Em8UFY99UDyO5m3CnoeZIv83cimCfg8KcgGE0brngOMJAfubKvExMCFLADiq8N/Bd2FvHaKwnJ2CMvQ7sI9riEAF5kVsM/4koylls8utWWvefjHHY3ydkIYw3B5eC/UeioaNU46STItWZt2zkSxpRNrCPJrswjm3WVydYNsOeWQqoOzTthJOHprf36e5hKLQePxXqyTXVf6G0+0pVoPBaiYL0+C6lnQSx+EaLeILoJ+8B9BQOe5vUyzXlsa+4CnYky+OOUu98o2upz0xltyIt9FXLbJB+kDiPhwe0q8PV9OGYtOcbx9K9M7O4qz7grgrepeezHIS3c996itIVEL3WNtxNMTvezVUo15cik0=
   file:
     - ${OJDK_IMAGE}.zip
     - ${OJDK_IMAGE}.zip.sha256
