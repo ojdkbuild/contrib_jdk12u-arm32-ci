@@ -21,8 +21,9 @@ set -x
 export OJDK_TAG="$1"
 # uncomment for standalone runs
 #export OJDK_UPDATE=`echo ${OJDK_TAG} | sed 's/\./ /g' | sed 's/+/ /' | awk '{print $3}'`
+#export OJDK_BUILD=`echo ${OJDK_TAG} | sed 's/+/ /' | awk '{print $2}'
 #export OJDK_MILESTONE=ojdkbuild
-#export OJDK_IMAGE=jdk-11.0.${OJDK_UPDATE}-${OJDK_MILESTONE}-linux-armhf
+#export OJDK_IMAGE=jdk-12.0.${OJDK_UPDATE}-${OJDK_MILESTONE}-linux-armhf
 export OJDK_WITH_NATIVE_DEBUG_SYMBOLS=none
 export OJDK_WITH_DEBUG_LEVEL=release
 export OJDK_CACERTS_URL=https://github.com/ojdkbuild/lookaside_ca-certificates/raw/master/cacerts
@@ -68,7 +69,7 @@ done
 $D ln -s /opt/sysroot/lib/arm-linux-gnueabihf /lib/arm-linux-gnueabihf
 
 # boot jdk
-$D wget -nv https://github.com/ojdkbuild/contrib_jdk12u-ci/releases/download/jdk-12-ga/jdk-12.0.${OJDK_UPDATE}-ojdkbuild-linux-x64.zip
+$D wget -nv https://github.com/ojdkbuild/contrib_jdk12u-ci/releases/download/jdk-12.0.${OJDK_UPDATE}%2B${OJDK_BUILD}/jdk-12.0.${OJDK_UPDATE}-ojdkbuild-linux-x64.zip
 $D unzip -q jdk-12.0.${OJDK_UPDATE}-ojdkbuild-linux-x64.zip
 $D mv jdk-12.0.${OJDK_UPDATE}-ojdkbuild-linux-x64 bootjdk
 
@@ -102,6 +103,7 @@ $D bash -c "cd jdkbuild && \
     --with-freetype-include=/opt/sysroot/usr/include/freetype2/ \
     --with-freetype-lib=/opt/sysroot/usr/lib/arm-linux-gnueabihf/ \
     --with-version-pre=${OJDK_MILESTONE} \
+    --with-version-build=${OJDK_BUILD} \
     --with-version-opt='' \
     --with-log=info"
 $D bash -c "cd jdkbuild && \
